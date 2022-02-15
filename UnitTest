@@ -1,5 +1,5 @@
 # Dictionaries and Sets Unit Test
-# 2.13.2022 @ 11:52 am
+# 2.15.2022 @ 8:05 am
 
 # Helper Functions
 import operator as op
@@ -242,7 +242,7 @@ number_name_tc = [(9, 'nine'),
                   (123999, 'one hundred twenty three thousand nine hundred ninety nine'),
                   (123456999, 'one hundred twenty three million four hundred fifty six thousand nine hundred ninety nine'),
                   (123456789999, 'one hundred twenty three billion four hundred fifty six million seven hundred eighty nine thousand nine hundred ninety nine'),
-                  (6190341278453321087663410, 'six septillion one hundred ninety hextillion three hundred forty one quintillion two hundred seventy eight quadrillion four hundred fifty three trillion three hundred twenty one billion eighty seven million six hundred sixty three thousand four hundred ten')]
+                  (6190341278453321087663410, 'six septillion one hundred ninety sextillion three hundred forty one quintillion two hundred seventy eight quadrillion four hundred fifty three trillion three hundred twenty one billion eighty seven million six hundred sixty three thousand four hundred ten')]
 deviation_tc = [({}, 0),
                 ({1:1, 2:2, 3:3}, 1),
                 ({1:1, 2:1, 3:1, 4:4, 5:5, 6:4}, 3)]
@@ -261,8 +261,8 @@ apply_perm_tc = [(('', '()'), ''),
 eq_perms_tc = [(('()', '()'), True),
                (('(a)', '()'), True),
                (('(a)', '(b)'),True),
-               (('()', '(ab)(ba'), False),
-               (('()', '(ab)(ba)'), True),
+               (('()', '(ab)'), False),
+               (('()', '(ab)(ab)'), True),
                (('(ab)', '(ba)'), True),
                (('(abc)', '(acb)'), False),
                (('(abc)(ca)', '(ca)(abc)'), False),
