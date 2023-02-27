@@ -11,7 +11,6 @@ is_comp = op.is_
 
 # broken: gives points when p2 is empty
 def perm_eq(p1, p2):
-    print(p1, p2)
     def to_dct(perm):
         split_perm = perm[1:len(perm)-1].split(')(')
         dct = {}
@@ -22,7 +21,6 @@ def perm_eq(p1, p2):
                     dct[chunk[i]] = chunk[i+1]
                 else:
                     dct[chunk[i]] = chunk[0]
-        print(dct)
         return dct
     def remove_identity(dct):
         no_ident_dct = {}
