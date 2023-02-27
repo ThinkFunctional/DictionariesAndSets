@@ -1,5 +1,5 @@
 # Dictionaries and Sets Unit Test
-# 2.9.2023 @ 9:41 am
+# 2.27.2023 @ 12:54 pm
 
 # Helper Functions
 import operator as op
@@ -9,7 +9,9 @@ from datetime import datetime
 eq_comp = op.__eq__
 is_comp = op.is_
 
+# broken: gives points when p2 is empty
 def perm_eq(p1, p2):
+    print(p1, p2)
     def to_dct(perm):
         split_perm = perm[1:len(perm)-1].split(')(')
         dct = {}
@@ -20,12 +22,14 @@ def perm_eq(p1, p2):
                     dct[chunk[i]] = chunk[i+1]
                 else:
                     dct[chunk[i]] = chunk[0]
+        print(dct)
         return dct
     def remove_identity(dct):
         no_ident_dct = {}
         for key in dct:
             if key != dct[key]:
                 no_ident_dct[key] = dct[key]
+        return no_ident_dct
     return remove_identity(to_dct(p1)) == remove_identity(to_dct(p2))
 
 def elems_comp(a_list, b_list):
