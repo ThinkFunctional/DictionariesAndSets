@@ -1,5 +1,5 @@
-# Dictionaries and Sets Unit Test
-# 2.27.2023 @ 12:54 pm
+# Name: Dicts and Sets Unit Test
+# Time: 2/28/2023 @ 7:21 am
 
 # Helper Functions
 import operator as op
@@ -9,8 +9,9 @@ from datetime import datetime
 eq_comp = op.__eq__
 is_comp = op.is_
 
-# broken: gives points when p2 is empty
 def perm_eq(p1, p2):
+    if not isinstance(p1, str) or not isinstance(p2, str):
+        return False
     def to_dct(perm):
         split_perm = perm[1:len(perm)-1].split(')(')
         dct = {}
@@ -22,13 +23,7 @@ def perm_eq(p1, p2):
                 else:
                     dct[chunk[i]] = chunk[0]
         return dct
-    def remove_identity(dct):
-        no_ident_dct = {}
-        for key in dct:
-            if key != dct[key]:
-                no_ident_dct[key] = dct[key]
-        return no_ident_dct
-    return remove_identity(to_dct(p1)) == remove_identity(to_dct(p2))
+    return(to_dct(p1) == to_dct(p2))
 
 def elems_comp(a_list, b_list):
     # Return true if every element of a is an element of b and vice versa, False otherwise
@@ -333,7 +328,7 @@ to_morse_unit = Unit(to_morse, 'to_morse', to_morse_tc, False, False, eq_comp)
 subst_cipher_unit = Unit(subst_cipher, 'subst_cipher', subst_cipher_tc, True, False, eq_comp)
 decrypt_unit = Unit(decrypt, 'decrypt', decrypt_tc, True, False, eq_comp)
 next_date_unit = Unit(next_date, 'next date', next_date_tc, True, False, eq_comp)
-number_name_unit = Unit(number_name, 'number_name', number_name_tc, False, False, eq_comp)
+number_name_unit = Unit(number_name, 'number_name', number_name_tc, False, False, eq_comp, extra_credit=True)
 deviation_unit = Unit(deviation, 'deviation', deviation_tc, False, False, eq_comp)
 is_bijective_unit = Unit(is_bijective, 'is_bijective', is_bijective_tc, False, False, eq_comp)
 reverse_dct_unit = Unit(reverse_dct, 'reverse_dct', reverse_dct_tc, False, False, eq_comp)
